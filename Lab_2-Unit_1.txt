@@ -1,0 +1,32 @@
+2. Write a PHP program to find out maximum and minimum number
+
+<?php
+
+$num1 = 25;
+$num2 = 10;
+$num3 = 40;
+
+// Find maximum
+if ($num1 >= $num2 && $num1 >= $num3)
+    $max = $num1;
+elseif ($num2 >= $num1 && $num2 >= $num3)
+    $max = $num2;
+else
+    $max = $num3;
+
+// Find minimum
+if ($num1 <= $num2 && $num1 <= $num3)
+    $min = $num1;
+elseif ($num2 <= $num1 && $num2 <= $num3)
+    $min = $num2;
+else
+    $min = $num3;
+
+echo "Maximum Number = $max <br>";
+echo "Minimum Number = $min";
+?>
+---------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+
+Maximum Number = 40
+Minimum Number = 10
