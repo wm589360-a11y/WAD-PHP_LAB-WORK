@@ -1,0 +1,43 @@
+1. Write a PHP program for print Previous semester Result using variables & 
+constants in PHP.
+
+<?php
+// Constant
+define("COLLEGE_NAME", "Marwadi University");
+
+// Variables
+$studentName = "Walter Musa Musa";
+$semester = "Semester 4";
+$totalMarks = 500;
+$obtainedMarks = 420;
+
+// Calculate percentage
+$percentage = ($obtainedMarks / $totalMarks) * 100;
+
+// Display Result
+echo "<h2>Previous Semester Result</h2>";
+echo "College Name: " . COLLEGE_NAME . "<br>";
+echo "Student Name: " . $studentName . "<br>";
+echo "Semester: " . $semester . "<br>";
+echo "Total Marks: " . $totalMarks . "<br>";
+echo "Obtained Marks: " . $obtainedMarks . "<br>";
+echo "Percentage: " . $percentage . "%<br>";
+
+// Result Status
+if ($percentage >= 40) {
+    echo "Result: PASS";
+} else {
+    echo "Result: FAIL";
+}
+?>
+--------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+
+Previous Semester Result
+College Name: Marwadi University
+Student Name: Walter Musa Musa
+Semester: Semester 4
+Total Marks: 500
+Obtained Marks: 420
+Percentage: 84%
+Result: PASS
