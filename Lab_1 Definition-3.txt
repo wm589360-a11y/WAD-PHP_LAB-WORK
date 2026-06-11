@@ -1,0 +1,55 @@
+ 3. Write a PHP program for operators in PHP.
+<?php
+// Arithmetic Operators
+$a = 10;
+$b = 5;
+
+echo "Arithmetic Operators:\n";
+print ("<br>");
+echo "Addition: " . ($a + $b) . "<br>";
+echo "Subtraction: " . ($a - $b) . "<br>";
+echo "Multiplication: " . ($a * $b) . "<br>";
+echo "Division: " . ($a / $b) . "<br>";
+echo "Modulus: " . ($a % $b) . "<br><br>";
+
+// Comparison Operators
+echo "Comparison Operators:\n";
+echo ($a == $b ? "a is equal to b" : "a is not equal to b") . "<br>";
+echo ($a > $b ? "a is greater than b" : "a is not greater than b") . "<br><br>";
+
+// Assignment Operators
+$c = $a;
+$c += $b;
+echo "Assignment Operator (+=): $c<br><br>";
+
+// Logical Operators
+$x = true;
+$y = false;
+
+echo "Logical Operators:\n";
+echo "x AND y = ";
+var_dump($x && $y);
+
+echo "x OR y = ";
+var_dump($x || $y);
+
+echo "NOT x = ";
+var_dump(!$x);
+?>
+---------------------------------------------------------------------------------------------------------
+
+PROGRAM OUTPUT:
+
+Arithmetic Operators:
+Addition: 15
+Subtraction: 5
+Multiplication: 50
+Division: 2
+Modulus: 0
+
+Comparison Operators: a is not equal to b
+a is greater than b
+
+Assignment Operator (+=): 15
+
+Logical Operators: x AND y = bool(false) x OR y = bool(true) NOT x = bool(false)
