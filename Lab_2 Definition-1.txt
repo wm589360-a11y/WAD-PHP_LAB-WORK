@@ -1,0 +1,29 @@
+1. Create a function named collegeInfo() that displays:
+College Name
+Course Name
+Academic Year
+
+<?php
+
+
+function collegeInfo(){
+
+  $college_name= "Marwadi university";
+  $course_name= "PHP";
+  $X= 2026;
+
+
+    echo "College Name: $college_name <br>";
+    echo "Course Name: $course_name <br>";
+    echo " Academic Year: $X <br>";
+}
+
+collegeInfo();
+
+?>
+-------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+College Name: Marwadi university
+Course Name: PHP
+Academic Year: 2026   
+   
