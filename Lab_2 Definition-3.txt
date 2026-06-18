@@ -1,0 +1,28 @@
+3. Create a function named calculatepercentage() that:
+
+Accept marks of 5 subjects.
+Calculates total marks.
+Returns percentage.
+
+<?php
+$sub1 = 80;
+$sub2 = 90;
+$sub3 = 85;
+$sub4 = 88;
+$sub5 = 95;
+
+function calculatePercentage()
+{
+    global $sub1, $sub2, $sub3, $sub4, $sub5;
+
+    $total = $sub1 + $sub2 + $sub3 + $sub4 + $sub5;
+    $percentage = ($total / 500) * 100;
+
+    return $percentage;
+}
+
+echo "Percentage = " . calculatePercentage() . "%";
+?>
+--------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+Percentage = 87.6%
