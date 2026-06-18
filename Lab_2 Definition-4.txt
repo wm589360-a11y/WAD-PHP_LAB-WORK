@@ -1,0 +1,23 @@
+4. To verify whether a function exits before calling it. Create a function name welcomestudent().
+
+Use function exists()to check its existence.
+If the function exits, callit. Otherwise display an error message.
+
+<?php
+// Create the function
+function welcomeStudent()
+{
+    echo "Welcome Student!";
+}
+
+// Check if the function exists
+if (function_exists("welcomeStudent")) {
+    welcomeStudent();
+} else {
+    echo "Error: Function does not exist.";
+}
+?>
+-------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+
+Welcome Student!
