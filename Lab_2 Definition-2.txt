@@ -1,0 +1,34 @@
+2. Create a function named studentDetails() that accepts:
+Student Name
+Enrollment Number
+Semester
+
+
+<?php
+
+$name = "Walter M Musa";
+$enroll_num = "123796";
+$semester = 5;
+$grade = "A";
+
+function studentDetails() {
+    global $name, $enroll_num, $semester, $grade;
+
+    echo "Student Name: $name <br>";
+    echo "Enrollment Number: $enroll_num <br>";
+    echo "Semester: $semester <br>";
+    echo "Grade: $grade <br>";
+}
+
+studentDetails();
+
+?>
+--------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+
+Student Name: Walter M Musa
+Enrollment Number: 123796
+Semester: 5
+Grade: A
+
+
