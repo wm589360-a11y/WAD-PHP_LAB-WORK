@@ -1,0 +1,42 @@
+3. Write a PHP Program to merge two arrays.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post">
+    Array 1 (space separated):
+    <input type="text" name="arr1"><br><br>
+
+    Array 2 (space separated):
+    <input type="text" name="arr2"><br><br>
+
+    <input type="submit" value="Merge Arrays">
+</form>
+
+<?php
+if(isset($_POST['arr1']) && isset($_POST['arr2']))
+{
+    $array1 = explode(" ", trim($_POST['arr1']));
+    $array2 = explode(" ", trim($_POST['arr2']));
+
+    $mergedArray = array_merge($array1, $array2);
+
+    echo "<h3>Merged Array:</h3>";
+    print_r($mergedArray);
+}
+?>
+
+</body>
+</html>
+--------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+
+Array 1 (space separated): 
+
+
+Array 2 (space separated): 
+
+
+Merged Array:
+Array ( [0] => 10 [1] => 20 [2] => 30 [3] => 40 [4] => 50 [5] => 60 )
