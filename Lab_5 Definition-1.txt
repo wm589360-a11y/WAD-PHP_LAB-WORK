@@ -1,0 +1,45 @@
+//Arrays in PHP and their functions.
+1. Write a PHP program to print the values of array entered by user.
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Array Values</title>
+</head>
+<body>
+
+<form method="post">
+    Enter array values (comma separated):
+    <input type="text" name="values" required>
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $input = $_POST['values'];
+
+    // Convert comma-separated string into an array
+    $arr = explode(",", $input);
+
+    echo "<h3>Array Values:</h3>";
+
+    foreach ($arr as $value) {
+        echo trim($value) . "<br>";
+    }
+}
+?>
+
+</body>
+</html>
+--------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+
+Enter array values (comma separated): 
+ 
+Array Values:
+10
+20
+30
+40
+50
+
