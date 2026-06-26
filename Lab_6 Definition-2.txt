@@ -1,0 +1,23 @@
+Write a PHP program that demonstrates the use of the string functions:
+2. strpos() //find some specific word, letter
+
+<?php
+// Demonstration of strpos() function
+
+$string = "Welcome to PHP Programming";
+
+$position = strpos($string, "PHP");
+
+echo "String: " . $string . "<br>";
+
+if ($position !== false) {
+    echo "The word 'PHP' is found at position: " . $position;
+} else {
+    echo "The word 'PHP' was not found.";
+}
+?>
+---------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+
+String: Welcome to PHP Programming
+The word 'PHP' is found at position: 11
