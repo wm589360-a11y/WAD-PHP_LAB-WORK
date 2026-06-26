@@ -1,0 +1,16 @@
+Write a PHP program that demonstrates the use of the string functions:
+3. str_word_count()
+
+<?php
+// Demonstration of str_word_count() function
+
+$string = "PHP is a server side scripting language";
+
+echo "String: " . $string . "<br>";
+echo "Number of words: " . str_word_count($string);
+?>
+--------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+
+String: PHP is a server side scripting language
+Number of words: 7
