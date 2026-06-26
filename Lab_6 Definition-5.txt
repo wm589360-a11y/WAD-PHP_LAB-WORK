@@ -1,0 +1,16 @@
+Write a PHP program that demonstrates the use of the string functions:
+5) strtolower()
+
+<?php
+// Demonstration of strtolower() function
+
+$string = "Hello WORLD! Welcome To PHP";
+
+echo "Original String: " . $string . "<br>";
+echo "Lowercase String: " . strtolower($string);
+?>
+--------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+
+Original String: Hello WORLD! Welcome To PHP
+Lowercase String: hello world! welcome to php
