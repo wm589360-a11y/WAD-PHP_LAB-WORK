@@ -1,0 +1,17 @@
+Write a PHP program that demonstrates the use of the string functions:
+1) strlen() // any string
+
+<?php
+// Demonstration of strlen() function
+
+$string = "Hello, World!";
+
+echo "String: " . $string . "<br>";
+echo "Length of the string: " . strlen($string);
+?>
+--------------------------------------------------------------------------------------------------------------
+PROGRAM OUTPUT:
+
+String: Hello, World!
+Length of the string: 13
+
