@@ -1,0 +1,8 @@
+ARCHITECTURE FOR MY PROJECT:
+
+Clean Layered Architecture(Presentation Layer, Business logic layer, Data access layer, Database layer)
+
+PROJECT TITLE:
+
+Advanced Task Tracker
+
