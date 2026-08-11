@@ -1,0 +1,17 @@
+3.3 Write a PHP script to use cookie with header
+
+<?php
+
+// Create a cookie
+setcookie("username", "Walter", time() + 3600, "/");
+
+// Redirect to another page
+header("Location: welcome.php");
+exit();
+
+?>
+-------------------------------------------------------------------------------------------------------------
+
+OUTPUT:
+
+Welcome, Walter
