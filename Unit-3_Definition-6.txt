@@ -1,0 +1,18 @@
+3.6 Write a PHP script to destroy a session
+
+<?php
+// Start the session
+session_start();
+
+// Destroy all session variables
+session_unset();
+
+// Destroy the session
+session_destroy();
+
+echo "Session destroyed successfully!";
+?>
+------------------------------------------------------------------------------------------------------------
+OUTPUT:
+
+Session destroyed successfully!
