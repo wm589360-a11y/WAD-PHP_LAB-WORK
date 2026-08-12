@@ -1,0 +1,109 @@
+ 3.7 Write a PHP script to create a session when the user log in using the form of 
+Practical 12. Provide an option to logout. Once the user logs out then 
+he/she should not be able to open the home page using the URL.
+
+<?php
+session_start();
+
+// If user is already logged in, go to home page
+if (isset($_SESSION['username'])) {
+    header("Location: home.php");
+    exit();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Sample username and password
+    if ($username == "admin" && $password == "12345") {
+
+        // Create session
+        $_SESSION['username'] = $username;
+
+        // Redirect to home page
+        header("Location: home.php");
+        exit();
+
+    } else {
+        $error = "Invalid username or password!";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+
+<h2>User Login</h2>
+
+<?php
+if (isset($error)) {
+    echo "<p style='color:red;'>$error</p>";
+}
+?>
+
+<form method="POST" action="">
+    <label>Username:</label>
+    <input type="text" name="username" required>
+    <br><br>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+    <br><br>
+
+    <input type="submit" value="Login">
+</form>
+
+</body>
+</html>
+-------------------------------------------------------------------------------------------------------
+<?php
+session_start();
+
+// Check whether user is logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+
+<h2>Welcome to Home Page</h2>
+
+<p>
+    Hello, <?php echo htmlspecialchars($_SESSION['username']); ?>!
+</p>
+
+<p>You are successfully logged in.</p>
+
+<a href="logout.php">Logout</a>
+
+</body>
+</html>
+-------------------------------------------------------------------------------------------------------------
+<?php
+session_start();
+
+// Destroy all session variables
+$_SESSION = array();
+
+// Destroy the session
+session_destroy();
+
+// Redirect to login page
+header("Location: login.php");
+exit();
+?>
+------------------------------------------------------------------------------------------------------------
+OUTPUT:
