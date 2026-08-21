@@ -1,0 +1,114 @@
+4.3 Insert Data Into MySQL Using MySQLi and PDO
+
+students
+--------------------------------
+id | name | email | marks
+
+
+<?php
+$conn = new mysqli("localhost", "root", "", "college");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "INSERT INTO students (name, email, marks)
+        VALUES ('Walter', 'walter@gmail.com', 85)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Data inserted successfully";
+} else {
+    echo "Error: " . $conn->error;
+}
+
+$conn->close();
+?>
+
+
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "college";
+
+try {
+    $conn = new PDO(
+        "mysql:host=$servername;dbname=$dbname",
+        $username,
+        $password
+    );
+
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "INSERT INTO students (name, email, marks)
+            VALUES ('Walter', 'walter@gmail.com', 85)";
+
+    $conn->exec($sql);
+
+    echo "Data inserted successfully";
+}
+catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+
+
+
+<?php
+$conn = new mysqli("localhost", "root", "", "college");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$name = "John";
+$email = "john@gmail.com";
+$marks = 90;
+
+$stmt = $conn->prepare(
+    "INSERT INTO students (name, email, marks)
+     VALUES (?, ?, ?)"
+);
+
+$stmt->bind_param("ssi", $name, $email, $marks);
+
+if ($stmt->execute()) {
+    echo "Data inserted successfully";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+$stmt->close();
+$conn->close();
+?>
+
+
+
+
+<?php
+$conn = new PDO(
+    "mysql:host=localhost;dbname=college",
+    "root",
+    ""
+);
+
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$name = "John";
+$email = "john@gmail.com";
+$marks = 90;
+
+$sql = "INSERT INTO students (name, email, marks)
+        VALUES (:name, :email, :marks)";
+
+$stmt = $conn->prepare($sql);
+
+$stmt->execute([
+    ':name' => $name,
+    ':email' => $email,
+    ':marks' => $marks
+]);
+
+echo "Data inserted successfully";
+?>
