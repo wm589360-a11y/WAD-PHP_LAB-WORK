@@ -1,0 +1,89 @@
+4.5 Select Data From a MySQL Database
+
+
+| id | name   | email                                       | marks |
+| -: | ------ | ------------------------------------------- | ----: |
+|  1 | Walter | [walter@gmail.com](mailto:walter@gmail.com) |    85 |
+|  2 | John   | [john@gmail.com](mailto:john@gmail.com)     |    90 |
+|  3 | Peter  | [peter@gmail.com](mailto:peter@gmail.com)   |    78 |
+
+
+
+<?php
+$conn = new mysqli("localhost", "root", "", "college");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM students";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+
+    while ($row = $result->fetch_assoc()) {
+        echo "ID: " . $row["id"] . "<br>";
+        echo "Name: " . $row["name"] . "<br>";
+        echo "Email: " . $row["email"] . "<br>";
+        echo "Marks: " . $row["marks"] . "<br>";
+        echo "<hr>";
+    }
+
+} else {
+    echo "No records found";
+}
+
+$conn->close();
+?>
+
+OUTPUT:
+
+ID: 1
+Name: Walter
+Email: walter@gmail.com
+Marks: 85
+------------------
+
+ID: 2
+Name: John
+Email: john@gmail.com
+Marks: 90
+------------------
+
+ID: 3
+Name: Peter
+Email: peter@gmail.com
+Marks: 78
+
+
+
+
+<?php
+$conn = new PDO(
+    "mysql:host=localhost;dbname=college",
+    "root",
+    ""
+);
+
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$sql = "SELECT * FROM students";
+
+$stmt = $conn->query($sql);
+
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+    echo "ID: " . $row["id"] . "<br>";
+    echo "Name: " . $row["name"] . "<br>";
+    echo "Email: " . $row["email"] . "<br>";
+    echo "Marks: " . $row["marks"] . "<br>";
+    echo "<hr>";
+}
+
+$conn = null;
+?>
+
+
+$sql = "SELECT name, marks FROM students";
+
+$sql = "SELECT * FROM students WHERE marks >= 80";
