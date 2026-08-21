@@ -1,0 +1,82 @@
+4.2 Create a MySQL Table Using MySQLi and PDO PHP
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "college";
+
+try {
+    $conn = new PDO(
+        "mysql:host=$servername;dbname=$dbname",
+        $username,
+        $password
+    );
+
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    echo "Database connected successfully";
+}
+catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+?>
+
+
+
+
+<?php
+$conn = new mysqli("localhost", "root", "", "college");
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    marks INT
+)";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Table created successfully";
+} else {
+    echo "Error creating table: " . $conn->error;
+}
+
+$conn->close();
+?>
+
+
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "college";
+
+try {
+    $conn = new PDO(
+        "mysql:host=$servername;dbname=$dbname",
+        $username,
+        $password
+    );
+
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "CREATE TABLE students (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100),
+        email VARCHAR(100),
+        marks INT
+    )";
+
+    $conn->exec($sql);
+
+    echo "Table created successfully";
+}
+catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
